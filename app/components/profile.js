@@ -1,6 +1,6 @@
 import { P, PError } from "../main.js"
 import { byteToKb } from "../svg/SVGClass.js"
-import { LevelTitles } from "./Levels.js"
+import { LevelTitles } from "./levels.js"
 import { ListUsers } from "./listUsers.js"
 
 
