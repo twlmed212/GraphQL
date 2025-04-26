@@ -1,0 +1,42 @@
+  const query = `
+        {
+            user{
+                login
+                firstName
+                lastName
+                totalUp
+                totalDown
+                auditRatio
+            }
+
+            level : transaction (where :{_and :[
+                {type : {_eq : "level"}}
+                {event: {object: {name: {_eq: "Module"}}}}
+            ]}
+                order_by :{amount : desc}
+                limit :  1
+            ){
+                type
+                amount
+            }  
+            
+            porjects: transaction(
+                where: {type: {_eq: "xp"}, _and: [
+                {path: {_nlike: "%piscine-go%"}},
+                {path: {_nlike: "%piscine-js%"}},
+                {path: {_nlike: "%checkpoint/%"}},
+                ]}
+                order_by: {createdAt: asc}
+            ) {
+                path
+                amount
+            }
+
+            skills: user {
+                transactions(where: {type: {_like: "skill_%"}}, order_by: {amount: asc}) {
+                    type
+                    amount
+                }
+            }
+        }
+    `;

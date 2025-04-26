@@ -1,0 +1,538 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root{
+    --mainColor: #5046E6;
+    --secondaryColor: #E5EEFE;
+    --white: white;
+    --black: black;
+    --grey: rgb(168, 168, 168);
+    --yellow: rgb(232, 206, 14);
+    --purple:  rgb(87, 15, 203);
+}
+
+.DarkMode{
+    --mainColor: #37344e;
+    --secondaryColor: #2D2D44;
+    --white: #1a173a;
+    --black: rgb(213, 213, 213);
+    --grey: #6C6C6C;
+    --yellow: #F1C40F;
+    --purple: #8E44AD;
+}
+
+.RememberContainer ,.gap5pxGrid label, .Title, .Logout, .Overview label ,.Logo , .Name, .Address, .Campus{
+    color: var(--black);
+}
+body{
+    background-color: var(--secondaryColor);
+    font-family: "Gabarito", sans-serif;
+}
+.ErrorBox{
+    position: absolute;
+    width: 220px;
+    height: 60px;
+    background-color: #ff4f4f;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 10px 10px 0px 40px;
+    top: 10px;
+    color: white;
+    font-weight: 500;
+    right: 20px;
+}
+.ErrorBox::before{
+    content: url('./close.png');
+    position: absolute;
+    transform: scale(0.5);
+    top: -4px;
+    left: -10px;
+}
+
+.ErrorBox::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    background-color: #95150c; /* red progress bar */
+    animation: progress 4s linear forwards;
+  }
+  
+  @keyframes progress {
+    from { width: 0%; }
+    to { width: 100%; }
+  }
+  
+.AppContainer{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+.space{
+    height: 50px;
+}
+.Shake{
+    animation: shakeAnimation 0.3s ease-in-out;
+}
+@keyframes shakeAnimation {
+    0% {transform: translateX(0px);}
+    25% {transform: translateX(5px);}
+    50% {transform: translateX(-5px);}
+    75% {transform: translateX(5px);}
+    100% {transform: translateX(0);}
+}
+.Login{
+    position: relative;
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    width: 350px;
+    height: 400px;
+    overflow: hidden;
+    box-shadow: 0px 0px 15px  rgba(0, 0, 0, 0.211);
+    gap: 20px;
+    margin: auto;
+}
+.circle{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: var(--secondaryColor);
+    border-radius: 50%;
+    z-index: 1;
+}
+.C1Pos{
+    top: -60px;
+    right: -50px;
+}
+
+.C2Pos{
+    bottom: -40px;
+    left: -40px;
+}
+input{
+    padding: 10px 10px 10px 35px;
+    border-radius: 5px;
+    border: none;
+    outline: 1.4px solid  rgb(220, 220, 220);
+}
+input::placeholder{
+    color: var(--grey);
+}
+input[type="submit"]{
+    border: none;
+}
+.LoginButton{
+    background-color: #5046E6;
+    padding: 13px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+}
+.Login .Header{
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+.Login .Header .Logo{
+    width: fit-content;
+    font-size: 25px;
+}
+
+.Login .Header .Title{
+    font-weight: 500;
+    font-size: 22px;
+    width: fit-content;
+}
+
+.Login .Header .SubTitle{
+    width: fit-content;
+    color: rgb(111, 112, 112);
+    font-size: 1rem;
+
+}
+.LoginForm .Footer{
+    display: flex;
+    font-size: .85rem;
+    justify-content: space-between;
+}
+.RememberContainer{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.ForgetPassword{
+    color: var(--mainColor);
+    cursor: pointer;
+}
+.LoginForm{
+    position: relative;
+    gap: 15px;
+    z-index: 2;
+}
+.labels{
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+.gap5pxGrid{
+    display: grid;
+    gap: 5px;
+}
+
+
+.FlexColumn{
+    display: flex;
+    flex-direction: column;
+}
+
+.PasswordContainer{
+    /* gap: 5px; */
+    font-weight: 500;
+    justify-content: center;
+}
+.UserContainer{
+    /* gap: 5px; */
+    /* font-weight: 500; */
+    justify-content: center;
+    /* flex-wrap: wrap; */
+}
+.Statics{
+    width: 100%;
+    padding-top: 4.5rem;
+}
+.Statics .Header{
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 6rem;
+    top: 0;
+    width: 100%;
+    background-color: var(--white);
+    height: 50px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.131);
+}
+.Logo{
+    display: flex;
+    justify-content: center;
+    /* font-weight: 900; */
+    align-items: center;
+    height: 40px;
+    /* align-content: center; */
+}
+
+.Logo svg {
+    height: 50px;
+    width: 50px;
+}
+.Profile, .StaticsContainer{
+    margin: 0px 6rem;
+}
+.Profile{
+    display: flex;
+    width: calc(100% - 12rem);
+    height: 200px;
+}
+.Box{
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px  rgba(0, 0, 0, 0.096);
+}
+.StaticsContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+.Overview{
+    width: calc(50% - 10px);
+    display: block;
+    padding: 10px 10px;
+    height: 100%;
+}
+.Overview label, .Data{
+    margin: 3px 10px;
+}
+
+.Data{
+    height: calc(100% - 30px);
+    overflow: hidden;
+    border-top: 1px solid #80808045;
+    padding: 10px 0px 0px 0px;
+}
+svg{
+    /* background-color: blue; */
+    height: 100%;
+}
+.DoneRect{
+    fill: var(--mainColor);
+}
+.DoneText, .ReciveText{
+    font-size: 5px;
+}
+.DownPercent{
+    font-size: 10px;
+    fill: var(--yellow);
+    box-shadow: 0px 0px 10px black;
+}
+.UPPercent{
+    font-size: 10px;
+    fill: var(--mainColor);
+    box-shadow: 0px 0px 10px black;
+}
+.ReciveRect{
+    fill: var(--yellow)
+}
+.viewbox-fill {
+    background-color: var(--secondaryColor); /* same as above, to show full SVG */
+}
+svg .Background{
+    fill: none;
+    stroke: var(--grey);
+    stroke-width: 13px;
+}
+svg .CircleUp{
+    fill: none;
+    stroke: var(--mainColor);
+    
+}
+
+/*  */
+
+.svg-tooltip {
+    position: absolute;
+    background:var(--black);
+    color: var(--white);
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 5px;
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 1000;
+    font-family: monospace;
+}
+.xp-point{
+    fill: var(--mainColor);
+}
+.xp-point:hover {
+    fill: var(--yellow);
+    cursor: pointer;
+}
+
+
+.y-label {
+    font-size: 5px;
+  }
+  
+/*  */
+.TotalRatio{
+    font-size: 6px;
+}
+.RatioRect{
+    fill: var(--purple)
+}
+/* For Grid Testing Porpuse */
+.line{ 
+    stroke:rgba(123, 0, 255, 0.082);
+    stroke-width: 0.3px;
+}
+.XPLinePath{
+    stroke: var(--yellow);
+    fill: none;
+    stroke-width: 1px;
+}
+svg circle{
+    stroke-width: 5px;
+    /* color: red; */
+}
+svg .CircleDown{
+    fill: none;
+    stroke: var(--yellow)
+}
+
+.Picture{
+    overflow: hidden;
+    padding: 15px;
+}
+.ProfileIcon img{
+    border-radius: 50%;
+    width: 2.4rem;
+    cursor: pointer;
+    border: 1px solid var(--mainColor);
+}
+.ProfileIcon{
+    position: relative;
+}
+.Profile img{
+    width: 100%;
+    max-width: 150px;
+    border-radius: 50%;
+    border: 4px solid var(--mainColor);
+}
+.Information{
+    margin: 20px 0px;
+    gap: 5px;
+    width: 75%;
+}
+.Name{
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+.Address{
+    font-size: 1rem;
+}
+.GradeContainer{
+    background-color: var(--secondaryColor);
+    border-radius: 5px;
+    gap: 5px;
+    padding: 5px 20px;
+    width: fit-content;
+}
+.Grade{
+    color: #628BF1;
+}
+.GradeStatus{
+    color:#4E70E0;
+    font-weight: 900;
+    font-family: sans-serif;
+}
+.XpContainer{
+    background-color: #ECFDF5;
+    border-radius: 5px;
+    padding: 5px 20px;
+    gap: 5px;
+    width: fit-content;
+}
+.XPLabel{
+    color:#4D9A81;
+}
+.TotalXP{
+    color:#0e6b4f;
+    font-weight: 900;
+    font-family: sans-serif;
+}
+
+.GradeAndXP{
+    display: flex;
+    gap: 20px;
+}
+
+.Logout{
+    display: none;
+    position: absolute;
+    background-color: var(--secondaryColor);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.199);
+    right: 20px;
+    border-radius: 4px;
+}
+.Logout div{
+    cursor: pointer;
+    /* font-weight: 100; */
+    font-size: 0.9rem;
+    transition: all .5s ease-in-out;
+    width: 100%;
+    font-size: 20px;
+    padding: 10px;
+}
+.Logout div:hover{
+    background-color: var(--purple);
+    border-radius: 4px;
+    color: white;
+}
+
+#checkBox{
+    display: none;
+}
+
+.EmailIcon {
+    width: 25px;
+    position: absolute;
+    margin-left: 6px;
+    height: 25px;
+}
+
+.BackToLogin {
+    width: 100%;
+    display: flex;
+    gap: 11px;
+    justify-content: center;
+    align-items: center;
+    color: var(--mainColor);
+    fill: var(--mainColor);
+}
+.Logo{
+    fill: var(--mainColor);
+}
+div#BackIcon {
+    width: 13px;
+    height: 13px;
+    cursor: pointer;
+}
+
+.BackToLogin label {
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+span.responseMessage {
+    display: none;
+    text-align: center;
+    color: white;
+    border-radius: 4px;
+    padding: 5px;
+    box-shadow: 0px 0px 2px#00000047;
+}
+
+@media screen and (max-width:780px){
+    .Profile{
+        margin: 0rem 3rem;
+        width: calc(100% - 6rem);
+    }
+    .StaticsContainer{
+        margin: 1rem 3rem;
+        flex-wrap: wrap;
+        height: fit-content;
+        justify-content: center;
+    }
+    .Profile{
+        margin: 1rem 3rem;
+        height: fit-content;
+        justify-content: center;
+    }
+    .StaticsContainer{
+        flex-direction: column;
+    }
+    .Overview{
+        width: 100%;
+    }
+    .Statics .Header{
+        justify-content: space-between;
+        padding: 0px 1.2rem;
+    }
+   
+}
+@media screen and (max-width: 419px){
+    .Profile {
+        flex-wrap: wrap;
+    }
+    .GradeAndXP{
+        flex-wrap: wrap;
+    }
+    .XpContainer, .GradeContainer{
+        width: 100%;
+    }
+    .Information{
+        align-items: center;
+    }
+}
