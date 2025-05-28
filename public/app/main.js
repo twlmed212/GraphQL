@@ -46,10 +46,9 @@ export async function App(){
 
 
 async function ResetButton(){
-    const ServerWorking = await fetchData("http://localhost:9090/resetPassword", null, null, "GET")
     const forgetPassword = AppContainer.querySelector(".ForgetPassword")
     
-    if (ServerWorking && !P.user){
+    if (!P.user){
         forgetPassword.innerHTML = "<span>Forget password?</span>"
         forgetPassword.onclick = ()=>{
             AppContainer.innerHTML = ""
@@ -65,7 +64,7 @@ async function ResetButton(){
 
                 const emailDiv = AppContainer.querySelector("#email")
                 const email = emailDiv.value
-                const response = await fetchData(`http://localhost:9090/resetPassword?email=${email}`, null, null, "GET")
+                const response = await fetchData(`/api/resetPassword?email=${email}`, null, null, "GET")
                 const errorMsg = AppContainer.querySelector(".responseMessage")
                 if (response?.expirationTime){
                     errorMsg.style.display = "block"
