@@ -47,7 +47,7 @@ export  function Generate_XP_Progrees_Chart() {
         `;
 
         circles.push({
-            r: 2.5,
+            r: 2,
             cx: x,
             cy: y,
             cls: "xp-point",
