@@ -3,7 +3,11 @@ import { fetchData } from "./fetch.js"
 
 const queryUrl = `https://learn.zone01oujda.ma/api/graphql-engine/v1/graphql`
 
+
 export async function checkAuthorizationAndGetData(){
+  if (P?.user) {
+    return(P && P?.user) && P?.user?.data.profile[0]
+  }
     const query = `
       {
         ranks: object(

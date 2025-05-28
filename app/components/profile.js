@@ -38,28 +38,30 @@ export function ProfilePage(){
           <input type="checkbox" id="checkBox">
         </div>
       </div>
-    
-      <div class="Profile Box">
-        <div class="Picture">
+      <div class="ProfileContainer">
+        <div class="Profile Box">
+          <div class="Picture">
 
-          <img class="UserPicture" src="${image}" alt="Profile Picture"  onerror="this.onerror=null; this.src='/profile.JPEG';">
-        </div>
-        <div class="Information FlexColumn">
-          <span class="Name">${fullName}</span>
-          <span class="Address">${address + " " + city}</span>
-          <span class="Campus">${campus} Campus</span>
-          <div class="GradeAndXP">
-            <div class="GradeContainer FlexColumn">
-              <label class="Grade">Grade</label>
-              <span class="GradeStatus">${grade}</span>
-            </div>
-            <div class="XpContainer FlexColumn">
-              <label class="XPLabel">Total XP</label>
-              <span class="TotalXP">${xp}</span>
-            </div>
+            <img class="UserPicture" src="${image}" alt="Profile Picture"  onerror="this.onerror=null; this.src='/profile.JPEG';">
+          </div>
+          <div class="Information FlexColumn">
+            <span class="Name">${fullName}</span>
+            <span class="Address">${address + " " + city}</span>
+            <span class="Campus">${campus} Campus</span>
           </div>
         </div>
+        <div class="GradeAndXP Box">
+              <div class="GradeContainer FlexColumn">
+                <label class="Grade">Grade</label>
+                <span class="GradeStatus">${grade}</span>
+              </div>
+              <div class="XpContainer FlexColumn">
+                <label class="XPLabel">Total XP</label>
+                <span class="TotalXP">${xp}</span>
+              </div>
+          </div>
       </div>
+        
       <div class="StaticsContainer">
         <div class="Overview Box">
           <label for="">XP Progress Over Time</label>
