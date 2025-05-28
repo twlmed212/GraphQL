@@ -73,7 +73,7 @@ async function ResetButton(){
                     emailDiv.style.border = "1px solid green"
                 }else if (response?.error){
                     errorMsg.style.display = "block"
-                    errorMsg.innerHTML = response.error
+                    errorMsg.innerHTML = "Email not found or invalid."
                     errorMsg.style.backgroundColor = "#fd6e6e"
                     emailDiv.style.border = "1px solid red"
                     sendResetData.disabled = false
