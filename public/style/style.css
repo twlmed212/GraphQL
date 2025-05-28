@@ -17,13 +17,13 @@
 }
 
 .DarkMode{
-    --mainColor: #37344e;
-    --secondaryColor: #2D2D44;
-    --white: #1a173a;
-    --black: rgb(213, 213, 213);
-    --grey: #6C6C6C;
-    --yellow: #F1C40F;
-    --purple: #8E44AD;
+    --mainColor: #7B6FFF;      /* More vibrant accent color */
+    --secondaryColor: #1A1A1A; /* Darker background */
+    --white: #2D2D2D;          /* Darker container background */
+    --black: #FFFFFF;          /* Pure white text for better contrast */
+    --grey: #9E9E9E;          /* Lighter grey for better visibility */
+    --yellow: #FFD700;        /* Brighter yellow */
+    --purple: #9B59FF;        /* Brighter purple */
 }
 
 .RememberContainer ,.gap5pxGrid label, .Title, .Logout, .Overview label ,.Logo , .Name, .Address, .Campus{
