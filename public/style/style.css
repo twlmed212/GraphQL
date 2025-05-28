@@ -324,6 +324,19 @@ svg .CircleUp{
     border-radius: 5px;
     pointer-events: none;
     white-space: nowrap;
+    line-height: 17px;
+    z-index: 1000;
+    font-family: monospace;
+}
+.svg-tooltip2 {
+    position: absolute;
+    background:var(--black);
+    color: var(--white);
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 5px;
+    pointer-events: none;
+    white-space: nowrap;
     z-index: 1000;
     font-family: monospace;
 }

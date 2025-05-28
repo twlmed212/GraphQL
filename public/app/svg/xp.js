@@ -40,9 +40,10 @@ export  function Generate_XP_Progrees_Chart() {
         const tooltip = document.createElement("div");
         tooltip.className = "svg-tooltip";
         tooltip.innerHTML = `
-            <strong>${projectName}</strong><br>
+            <strong>${projectName}</strong>
+            <span style="font-size: 10px; color: #aaa;">${dateLabel}</span><br>
+            <strong> ${byteToKb(cumulativeXP)}</strong>
             <span style="font-size: 11px; color: #ccc;">${sign}${xpAmount}</span><br>
-            <span style="font-size: 10px; color: #aaa;">${dateLabel}</span>
         `;
 
         circles.push({
