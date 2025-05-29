@@ -23,12 +23,14 @@ export async function App(){
     let check
     if (localStorage.getItem("token")){
         check = await checkAuthorizationAndGetData()
+
     }
+    console.log("check", check);
+    
     if(localStorage.getItem("darkMode") == "true"){
         DarkMode(null, true)
     }
     PError(`Is Logged : ${check}`, check ? "green" : "red")
-    
     if (check){
         AppContainer.innerHTML = ProfilePage()
         HeaderButtons()
@@ -39,6 +41,7 @@ export async function App(){
         AppContainer.innerHTML = LoginPage()
         Login()
         ResetButton()
+       
         PError("You are Not Authorized, Login first", "red")
     }
 }

@@ -7,8 +7,6 @@ import { ListUsers } from "./listUsers.js"
   
 export function ProfilePage(){
     PError("Profile Object From ProfilePage Function :", "green", P)
-   
-   
     const login = ListUsers.get(P?.user.data?.profile[0].login)
     const fullName = P.user.data.profile[0].Data.firstName + P.user.data.profile[0].Data.lastName 
     const address = P.user.data.profile[0].Data.addressStreet
@@ -17,7 +15,7 @@ export function ProfilePage(){
 
     const imgID = login ? `3P3A${login}.JPG` : `${P?.user.data?.profile[0].login}.jpg`
     const image = `https://discord.zone01oujda.ma/assets/pictures/${imgID}?format=webp&width=250&height=250`
-    
+    console.log("P Data", P);
     const level = P.user.data.level[0].amount
     const grade = LevelTitles[Math.floor(level/10)]
     const xp = byteToKb(P.user.data.xp.aggregate.sum.amount)

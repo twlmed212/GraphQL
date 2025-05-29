@@ -1,5 +1,5 @@
 import { errorBox } from "../components/error.js"
-import { App, PError, P } from "../main.js"
+import { App, PError, P, queryUrl } from "../main.js"
 import { fetchData } from "./fetch.js"
 
 export function Login(){
@@ -10,20 +10,22 @@ export function Login(){
         const email = LoginButton.querySelector("#UserName")
         const pass = LoginButton.querySelector("#Password")
         const credentials = `Basic ${btoa(`${email.value}:${pass.value}`)}`
-        let token = await fetchData("https://learn.zone01oujda.ma/api/auth/signin", credentials)
-
         const button = LoginButton.querySelector(".LoginButton")
+        let token = await fetchData("https://learn.zone01oujda.ma/api/auth/signin", credentials)
+        const data = await fetchData(queryUrl, `Bearer ${token}`, "{user {auditRatio}}")
         button.style.backgroundColor = "gray"
         button.disabled = true
         button.style.cursor = "default"
-        if (typeof token === "object"){
+        console.log("data===", data);
+        
+        if (typeof token === "object" || data?.data?.user[0]?.auditRatio == null){
             // show error msg
             PError("inside Error Part", "red")            
             const Login = LoginButton.closest(".Login")
             const bodyElement =  LoginButton.closest("body")
             // add shaking effect
             Login.classList.add("Shake")
-            bodyElement.appendChild(errorBox("Invalid username or password"))
+            bodyElement.appendChild(errorBox(`${data?.data?.user[0] ? "You don't have permission to access this page" : "Invalid Credentials"}`, ))
             // Change Border input to red
             email.style.outline = "1.4px solid red" 
             pass.style.outline = "1.4px solid red" 
@@ -38,7 +40,7 @@ export function Login(){
                 button.disabled = false
                 button.style.cursor = "pointer"
             }, 4000)
-            PError(token.error, "red")
+            PError(token?.error, "red")
         }else{
             localStorage.setItem('token', token)
             P.token = token

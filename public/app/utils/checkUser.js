@@ -71,7 +71,10 @@ export async function checkAuthorizationAndGetData(){
     }
     P.user = data
     proccessData()
-    PError(`Profile Object:`, "green", P)
+    PError(`Profile Object:`, "orange", P)
+    if(!P?.user?.data.profile[0].auditRatio){
+      return false
+    }
     return (P && P?.user) && P?.user?.data.profile[0]
 }
 
